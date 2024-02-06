@@ -13,5 +13,10 @@ const linksSchema = new Schema({
   }
 });
 
-const Links = mongoose.model('link', linksSchema);
-export default Links;
+const idSchema = new Schema({
+  usedId : String
+});
+
+export const Links = mongoose.model('link', linksSchema);
+
+export const Id = mongoose.model('id', idSchema);
