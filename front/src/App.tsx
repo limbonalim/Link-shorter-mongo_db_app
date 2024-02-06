@@ -2,6 +2,7 @@ import './App.css';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import axiosApi from './axiosApi.ts';
 import { ApiURL } from './constants.ts';
+import { Button, Grid, TextField, Typography } from '@mui/material';
 
 interface IApiAnswer {
   originalUrl: string;
@@ -44,13 +45,22 @@ const App = () => {
   return (
     <>
       <form onSubmit={onSubmit}>
-        <h1>Shorten your link!</h1>
-        <input
-          onChange={onChange}
-          value={state.url}
-          name="url"
-        />
-        <button type="submit">Shorten!</button>
+        <Grid container direction='column' spacing={2}>
+          <Grid item><Typography variant='h2'>Shorten your link!</Typography></Grid>
+          <Grid item>
+            <TextField
+              sx={{width: '100%'}}
+              onChange={onChange}
+              value={state.url}
+              label='Link'
+              name="url"
+            />
+          </Grid>
+          <Grid item>
+            <Button type="submit">Shorten!</Button>
+          </Grid>
+
+        </Grid>
       </form>
       {linkTag}
     </>
