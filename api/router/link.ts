@@ -41,7 +41,7 @@ linkRoute.get('/:shortUrl', async (req, res, next) => {
       return res.status(404).send({error: 'Not found'});
     }
     const url = link[0].originalUrl;
-    res.redirect(`<script>window.open(url,'_blank');</script>`);
+    res.redirect(url);
   } catch (e) {
     next(e);
   }
